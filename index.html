@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lock In Timer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="timer-stage" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Study Timer</p>
+            <h1 id="app-title">Lock In Timer</h1>
+          </div>
+          <div class="status-pill" id="modeStatus">Zieluhrzeit</div>
+        </header>
+
+        <div class="timer-card" id="timerCard">
+          <div class="mascot-layer" id="mascotLayer" aria-hidden="true"></div>
+          <p class="session-label" id="sessionLabel">Lernen bis zur eingestellten Uhrzeit</p>
+          <div class="time-display" id="timeDisplay" aria-live="polite">00:00:00</div>
+          <div class="progress-shell" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <p class="timer-note" id="timerNote">Stelle eine Uhrzeit ein und starte deinen Fokusblock.</p>
+        </div>
+
+        <div class="controls-row">
+          <button class="primary-button" id="startPauseButton" type="button">Start</button>
+          <button class="ghost-button" id="resetButton" type="button">Reset</button>
+          <button class="ghost-button" id="completeButton" type="button">Fertig</button>
+        </div>
+
+        <nav class="mode-tabs" aria-label="Timer-Modi">
+          <button class="tab-button active" type="button" data-mode="target">Bis Uhrzeit</button>
+          <button class="tab-button" type="button" data-mode="duration">Countdown</button>
+          <button class="tab-button" type="button" data-mode="interval">Intervall</button>
+        </nav>
+
+        <section class="mode-panel active" id="targetPanel">
+          <label class="field">
+            <span>Zieluhrzeit</span>
+            <input id="targetTime" type="time" value="19:30">
+          </label>
+          <div class="quick-grid">
+            <button type="button" data-target-offset="30">+30 min</button>
+            <button type="button" data-target-offset="60">+1 h</button>
+            <button type="button" data-target-time="19:30">19:30</button>
+            <button type="button" data-target-time="22:00">22:00</button>
+          </div>
+        </section>
+
+        <section class="mode-panel" id="durationPanel">
+          <div class="split-fields">
+            <label class="field">
+              <span>Stunden</span>
+              <input id="durationHours" type="number" min="0" max="12" value="1">
+            </label>
+            <label class="field">
+              <span>Minuten</span>
+              <input id="durationMinutes" type="number" min="0" max="59" value="0">
+            </label>
+          </div>
+          <div class="quick-grid">
+            <button type="button" data-duration="25">25 min</button>
+            <button type="button" data-duration="45">45 min</button>
+            <button type="button" data-duration="60">1 Stunde</button>
+            <button type="button" data-duration="90">90 min</button>
+          </div>
+        </section>
+
+        <section class="mode-panel" id="intervalPanel">
+          <div class="split-fields three">
+            <label class="field">
+              <span>Fokus</span>
+              <input id="focusMinutes" type="number" min="1" max="120" value="25">
+            </label>
+            <label class="field">
+              <span>Pause</span>
+              <input id="breakMinutes" type="number" min="1" max="45" value="5">
+            </label>
+            <label class="field">
+              <span>Runden</span>
+              <input id="sessionCount" type="number" min="1" max="12" value="4">
+            </label>
+          </div>
+          <div class="controls-row compact">
+            <button class="ghost-button" id="skipIntervalButton" type="button">Naechste Phase</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-panel" aria-label="Study Tools">
+        <section class="tool-section">
+          <div class="section-heading">
+            <h2>Fokusplan</h2>
+            <span id="completedCount">0 erledigt</span>
+          </div>
+          <form class="task-form" id="taskForm">
+            <input id="taskInput" type="text" placeholder="Aufgabe hinzufuegen" autocomplete="off">
+            <button type="submit">+</button>
+          </form>
+          <ul class="task-list" id="taskList"></ul>
+        </section>
+
+        <section class="tool-section">
+          <div class="section-heading">
+            <h2>Session</h2>
+            <span id="sessionStats">0 min heute</span>
+          </div>
+          <textarea id="focusNote" rows="5" placeholder="Was ist das Ziel dieser Lernsession?"></textarea>
+        </section>
+
+        <section class="tool-section settings">
+          <div class="setting-row">
+            <div>
+              <strong>Retro-Cameos</strong>
+              <span>Eigene kleine Game-Mascots springen selten durch den Timer.</span>
+            </div>
+            <label class="switch">
+              <input id="mascotToggle" type="checkbox" checked>
+              <span></span>
+            </label>
+          </div>
+          <label class="range-field">
+            <span>Seltenheit</span>
+            <input id="rarityRange" type="range" min="1" max="5" value="4">
+          </label>
+          <div class="controls-row compact">
+            <button class="ghost-button" id="testMascotButton" type="button">Cameo testen</button>
+            <button class="ghost-button" id="soundToggleButton" type="button" aria-pressed="true">Ton an</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

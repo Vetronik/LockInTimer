@@ -18,17 +18,6 @@ Die Website enthaelt eigene transparente Game-Mascots in `assets/mascots/`. Sie 
 
 Du kannst optional eigene PNG-Dateien ergaenzen und sie in `script.js` in `characterAssets` eintragen.
 
-Diese frueher vorbereiteten Dateinamen kannst du ebenfalls selbst nutzen, wenn du eigene Rechte an den Bildern hast:
-
-- `pikachu.png`
-- `mario.png`
-- `luigi.png`
-- `link.png`
-- `kirby.png`
-- `pikmin.png`
-- `sonic.png`
-- `shadow.png`
-
 Wenn eine Datei fehlt, nutzt die Website automatisch einen Retro-Fallback.
 
 Ich habe passende Quellen in `assets/mascots/SOURCES.md` notiert.

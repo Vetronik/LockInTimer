@@ -177,8 +177,22 @@ body[data-theme="midnight"] .field input,
 body[data-theme="midnight"] .task-form input,
 body[data-theme="midnight"] textarea,
 body[data-theme="midnight"] .tab-button.active {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f7fbf8;
+  background: #f8fbf7;
+  color: #10171f;
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+body[data-theme="midnight"] .primary-button {
+  background: #f8fbf7;
+  color: #10171f;
+}
+
+body[data-theme="midnight"] .mode-tabs {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme="midnight"] .tab-button {
+  color: #d4e1dd;
 }
 
 .timer-card {
@@ -504,8 +518,8 @@ textarea {
 }
 
 body[data-theme="midnight"] .theme-button {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f7fbf8;
+  background: #f8fbf7;
+  color: #10171f;
 }
 
 .settings {

@@ -177,14 +177,15 @@ body[data-theme="midnight"] .field input,
 body[data-theme="midnight"] .task-form input,
 body[data-theme="midnight"] textarea,
 body[data-theme="midnight"] .tab-button.active {
-  background: #f8fbf7;
-  color: #10171f;
-  border-color: rgba(255, 255, 255, 0.26);
+  background: #263445;
+  color: #f5fbff;
+  border-color: #4b6075;
 }
 
 body[data-theme="midnight"] .primary-button {
-  background: #f8fbf7;
-  color: #10171f;
+  background: #6eb7d8;
+  color: #081018;
+  box-shadow: 0 10px 24px rgba(110, 183, 216, 0.2);
 }
 
 body[data-theme="midnight"] .mode-tabs {
@@ -193,6 +194,24 @@ body[data-theme="midnight"] .mode-tabs {
 
 body[data-theme="midnight"] .tab-button {
   color: #d4e1dd;
+}
+
+body[data-theme="midnight"] .tab-button.active {
+  background: #d7f2ff;
+  color: #081018;
+}
+
+body[data-theme="midnight"] .field input,
+body[data-theme="midnight"] .task-form input,
+body[data-theme="midnight"] textarea {
+  background: #101923;
+  color: #f5fbff;
+}
+
+body[data-theme="midnight"] .field input::placeholder,
+body[data-theme="midnight"] .task-form input::placeholder,
+body[data-theme="midnight"] textarea::placeholder {
+  color: #a9bbc6;
 }
 
 .timer-card {
@@ -518,8 +537,15 @@ textarea {
 }
 
 body[data-theme="midnight"] .theme-button {
-  background: #f8fbf7;
-  color: #10171f;
+  background: #263445;
+  color: #f5fbff;
+  border-color: #4b6075;
+}
+
+body[data-theme="midnight"] .theme-button.active {
+  background: #d7f2ff;
+  color: #081018;
+  border-color: #8fd6f4;
 }
 
 .settings {

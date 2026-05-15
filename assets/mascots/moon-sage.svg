@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Moon Sage mascot">
+  <path d="M25 48 64 14l39 34-21-4v26H46V44Z" fill="#d7c6ff" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M44 40 64 21l20 19-8 5-12-8-12 8Z" fill="#ffd85a" stroke="#17211f" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="64" cy="68" r="34" fill="#f3c7a1" stroke="#17211f" stroke-width="5"/>
+  <path d="M38 62c8-22 27-31 53-19-5-16-16-24-31-24-16 0-25 13-22 43Z" fill="#f0d56b" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="52" cy="70" r="5" fill="#17211f"/>
+  <circle cx="76" cy="70" r="5" fill="#17211f"/>
+  <path d="M57 85q7 5 14 0" fill="none" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M91 75 115 64l-8 25 12 10-25-1Z" fill="#a8d8ff" stroke="#17211f" stroke-width="4" stroke-linejoin="round"/>
+</svg>

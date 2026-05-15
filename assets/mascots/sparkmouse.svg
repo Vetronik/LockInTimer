@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Sparkmouse mascot">
+  <path d="M31 34 18 7l29 16ZM97 34l13-27-29 16Z" fill="#ffd648" stroke="#1d2625" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M39 86 19 107l29-4ZM89 86l20 21-29-4Z" fill="#f3bd36" stroke="#1d2625" stroke-width="5" stroke-linejoin="round"/>
+  <ellipse cx="64" cy="61" rx="43" ry="45" fill="#ffd648" stroke="#1d2625" stroke-width="5"/>
+  <circle cx="47" cy="60" r="6" fill="#1d2625"/>
+  <circle cx="81" cy="60" r="6" fill="#1d2625"/>
+  <circle cx="37" cy="72" r="8" fill="#ff6d61"/>
+  <circle cx="91" cy="72" r="8" fill="#ff6d61"/>
+  <path d="M57 77q7 7 14 0" fill="none" stroke="#1d2625" stroke-width="5" stroke-linecap="round"/>
+  <path d="m99 31 15-9-7 17 13 7-18 4" fill="none" stroke="#ffd648" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

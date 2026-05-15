@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Jump Mechanic mascot">
+  <path d="M31 51c2-24 18-37 39-35 18 2 29 15 30 35Z" fill="#e94a3f" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M27 57h75v16c0 24-16 40-38 40S27 97 27 73Z" fill="#f7c798" stroke="#17211f" stroke-width="5"/>
+  <path d="M39 76h50v33H39Z" fill="#2f73d7" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="50" cy="67" r="5" fill="#17211f"/>
+  <circle cx="78" cy="67" r="5" fill="#17211f"/>
+  <path d="M55 83q9 6 18 0" fill="none" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="50" cy="94" r="5" fill="#ffd85a"/>
+  <circle cx="78" cy="94" r="5" fill="#ffd85a"/>
+  <path d="M30 105 14 117M98 105l16 12" stroke="#17211f" stroke-width="9" stroke-linecap="round"/>
+</svg>

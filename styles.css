@@ -28,6 +28,31 @@ body {
     linear-gradient(135deg, #f6f1e7 0%, #eef5ee 46%, #f8f5ef 100%);
 }
 
+body[data-theme="arcade"] {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 216, 90, 0.28), transparent 24rem),
+    radial-gradient(circle at 85% 16%, rgba(120, 103, 214, 0.24), transparent 26rem),
+    linear-gradient(135deg, #f8f7ff 0%, #eef7f8 54%, #fff3ea 100%);
+}
+
+body[data-theme="midnight"] {
+  --ink: #edf7f3;
+  --muted: #a9bbb6;
+  --line: rgba(255, 255, 255, 0.14);
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(110, 183, 216, 0.22), transparent 22rem),
+    radial-gradient(circle at 82% 18%, rgba(120, 103, 214, 0.24), transparent 25rem),
+    linear-gradient(135deg, #111817 0%, #141b2c 52%, #0f1119 100%);
+}
+
+body[data-theme="sunset"] {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(245, 190, 79, 0.34), transparent 24rem),
+    radial-gradient(circle at 84% 18%, rgba(239, 115, 93, 0.25), transparent 28rem),
+    linear-gradient(135deg, #fff4de 0%, #f7ece6 48%, #edf6ef 100%);
+}
+
 button,
 input,
 textarea {
@@ -55,6 +80,12 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+}
+
+body[data-theme="midnight"] .timer-stage,
+body[data-theme="midnight"] .side-panel {
+  background: rgba(20, 29, 38, 0.78);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .timer-stage {
@@ -134,6 +165,18 @@ h2 {
   font-weight: 800;
 }
 
+body[data-theme="midnight"] .status-pill,
+body[data-theme="midnight"] .ghost-button,
+body[data-theme="midnight"] .quick-grid button,
+body[data-theme="midnight"] .task-form button,
+body[data-theme="midnight"] .field input,
+body[data-theme="midnight"] .task-form input,
+body[data-theme="midnight"] textarea,
+body[data-theme="midnight"] .tab-button.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7fbf8;
+}
+
 .timer-card {
   position: relative;
   overflow: hidden;
@@ -147,6 +190,25 @@ h2 {
     linear-gradient(120deg, rgba(22, 33, 31, 0.92), rgba(23, 98, 79, 0.86)),
     repeating-linear-gradient(90deg, transparent 0, transparent 22px, rgba(255, 255, 255, 0.06) 23px);
   color: white;
+}
+
+body[data-theme="arcade"] .timer-card {
+  background:
+    linear-gradient(135deg, rgba(30, 27, 75, 0.94), rgba(91, 55, 190, 0.88)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.07) 0 2px, transparent 2px 12px);
+}
+
+body[data-theme="midnight"] .timer-card {
+  background:
+    radial-gradient(circle at 78% 24%, rgba(110, 183, 216, 0.22), transparent 18rem),
+    linear-gradient(135deg, #0a0f16 0%, #172331 52%, #10131d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body[data-theme="sunset"] .timer-card {
+  background:
+    linear-gradient(120deg, rgba(111, 56, 75, 0.93), rgba(222, 102, 77, 0.88)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 22px, rgba(255, 255, 255, 0.08) 23px);
 }
 
 .session-label {
@@ -187,6 +249,18 @@ h2 {
   border-radius: inherit;
   background: linear-gradient(90deg, var(--gold), var(--coral), var(--sky));
   transition: width 0.35s ease;
+}
+
+body[data-theme="arcade"] .progress-bar {
+  background: linear-gradient(90deg, #f5be4f, #ff5aa5, #6eb7d8);
+}
+
+body[data-theme="midnight"] .progress-bar {
+  background: linear-gradient(90deg, #6eb7d8, #7867d6, #f5be4f);
+}
+
+body[data-theme="sunset"] .progress-bar {
+  background: linear-gradient(90deg, #f5be4f, #ef735d, #ffe0a3);
 }
 
 .controls-row {
@@ -309,6 +383,12 @@ textarea:focus {
   background: rgba(255, 255, 255, 0.62);
 }
 
+body[data-theme="midnight"] .tool-section,
+body[data-theme="midnight"] .mode-panel,
+body[data-theme="midnight"] .task-list li {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .section-heading {
   justify-content: space-between;
   gap: 12px;
@@ -368,6 +448,60 @@ textarea:focus {
 textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.theme-button {
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fffdf8;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.theme-button.active {
+  border-color: var(--mint);
+  box-shadow: 0 0 0 4px rgba(47, 143, 117, 0.14);
+}
+
+.theme-swatch {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(22, 33, 31, 0.15);
+}
+
+.theme-swatch.forest {
+  background: linear-gradient(135deg, #16211f, #2f8f75);
+}
+
+.theme-swatch.arcade {
+  background: linear-gradient(135deg, #1e1b4b, #ff5aa5);
+}
+
+.theme-swatch.midnight {
+  background: linear-gradient(135deg, #07111a, #6eb7d8);
+}
+
+.theme-swatch.sunset {
+  background: linear-gradient(135deg, #6f384b, #f5be4f);
+}
+
+body[data-theme="midnight"] .theme-button {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7fbf8;
 }
 
 .settings {
@@ -441,10 +575,23 @@ textarea {
   position: absolute;
   left: -90px;
   bottom: 60px;
-  width: 58px;
-  height: 58px;
+  width: 66px;
+  height: 66px;
   transform-origin: center bottom;
   animation: mascot-run 2.6s cubic-bezier(0.3, 0.02, 0.22, 1) forwards;
+}
+
+.asset-mascot {
+  width: 88px;
+  height: 88px;
+  filter: drop-shadow(0 12px 12px rgba(0, 0, 0, 0.28));
+}
+
+.asset-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
 }
 
 .mascot .body {
@@ -553,6 +700,40 @@ textarea {
     transform: translateX(calc(100vw + 180px)) translateY(0) rotate(7deg) scale(0.86);
     opacity: 0;
   }
+}
+
+.timer-stage:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  padding: clamp(18px, 4vw, 56px);
+  border-radius: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(245, 190, 79, 0.2), transparent 28rem),
+    radial-gradient(circle at 84% 14%, rgba(110, 183, 216, 0.22), transparent 30rem),
+    rgba(255, 255, 255, 0.94);
+}
+
+body[data-theme="midnight"] .timer-stage:fullscreen {
+  background:
+    radial-gradient(circle at 20% 16%, rgba(110, 183, 216, 0.2), transparent 28rem),
+    linear-gradient(135deg, #0a0f16 0%, #141b2c 100%);
+}
+
+.timer-stage:fullscreen .mode-tabs,
+.timer-stage:fullscreen .mode-panel {
+  display: none;
+}
+
+.timer-stage:fullscreen .timer-card {
+  min-height: 0;
+  height: 100%;
+  align-content: center;
+}
+
+.timer-stage:fullscreen .time-display {
+  font-size: clamp(4.6rem, 16vw, 14rem);
 }
 
 @media (max-width: 920px) {

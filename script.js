@@ -7,12 +7,14 @@ const state = {
   intervalPhase: "focus",
   intervalRound: 1,
   completedMinutes: Number(localStorage.getItem("completedMinutes") || 0),
+  theme: localStorage.getItem("timerTheme") || "forest",
   tickId: null,
   mascotId: null,
   sound: true
 };
 
 const el = {
+  timerStage: document.querySelector("#timerStage"),
   modeStatus: document.querySelector("#modeStatus"),
   sessionLabel: document.querySelector("#sessionLabel"),
   timeDisplay: document.querySelector("#timeDisplay"),
@@ -21,6 +23,7 @@ const el = {
   startPauseButton: document.querySelector("#startPauseButton"),
   resetButton: document.querySelector("#resetButton"),
   completeButton: document.querySelector("#completeButton"),
+  fullscreenButton: document.querySelector("#fullscreenButton"),
   targetTime: document.querySelector("#targetTime"),
   durationHours: document.querySelector("#durationHours"),
   durationMinutes: document.querySelector("#durationMinutes"),
@@ -33,6 +36,7 @@ const el = {
   taskList: document.querySelector("#taskList"),
   completedCount: document.querySelector("#completedCount"),
   sessionStats: document.querySelector("#sessionStats"),
+  themeStatus: document.querySelector("#themeStatus"),
   focusNote: document.querySelector("#focusNote"),
   mascotLayer: document.querySelector("#mascotLayer"),
   mascotToggle: document.querySelector("#mascotToggle"),
@@ -54,6 +58,23 @@ const mascots = [
   { type: "star", main: "#f7a8d8", accent: "#ffe56d" },
   { type: "mouse", main: "#74d36f", accent: "#f5f0df" },
   { type: "star", main: "#f4cf49", accent: "#f27b56" }
+];
+
+const characterAssets = [
+  { name: "Sparkmouse", src: "assets/mascots/sparkmouse.svg" },
+  { name: "Jump Mechanic", src: "assets/mascots/jump-mechanic.svg" },
+  { name: "Forest Quest Kid", src: "assets/mascots/forest-quest-kid.svg" },
+  { name: "Star Puff", src: "assets/mascots/star-puff.svg" },
+  { name: "Sprout Buddy", src: "assets/mascots/sprout-buddy.svg" },
+  { name: "Blue Comet", src: "assets/mascots/blue-comet.svg" },
+  { name: "Shadow Comet", src: "assets/mascots/shadow-comet.svg" },
+  { name: "Rose Crown", src: "assets/mascots/rose-crown.svg" },
+  { name: "Sun Crown", src: "assets/mascots/sun-crown.svg" },
+  { name: "Moon Sage", src: "assets/mascots/moon-sage.svg" },
+  { name: "Yellow Sprout", src: "assets/mascots/yellow-sprout.svg" },
+  { name: "Dark Warlord", src: "assets/mascots/dark-warlord.svg" },
+  { name: "Green Helper", src: "assets/mascots/green-helper.svg" },
+  { name: "Shell King", src: "assets/mascots/shell-king.svg" }
 ];
 
 let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
@@ -247,6 +268,32 @@ function scheduleMascot() {
 
 function spawnMascot() {
   if (!el.mascotToggle.checked) return;
+  const useCharacterAsset = Math.random() < 0.72;
+  if (useCharacterAsset) {
+    spawnCharacterAsset();
+    return;
+  }
+  spawnRetroMascot();
+}
+
+function spawnCharacterAsset() {
+  const data = characterAssets[Math.floor(Math.random() * characterAssets.length)];
+  const mascot = document.createElement("div");
+  const image = document.createElement("img");
+  mascot.className = "mascot asset-mascot";
+  image.src = data.src;
+  image.alt = "";
+  image.draggable = false;
+  image.addEventListener("error", () => {
+    mascot.remove();
+    spawnRetroMascot();
+  }, { once: true });
+  mascot.append(image);
+  el.mascotLayer.append(mascot);
+  window.setTimeout(() => mascot.remove(), 2800);
+}
+
+function spawnRetroMascot() {
   const data = mascots[Math.floor(Math.random() * mascots.length)];
   const mascot = document.createElement("div");
   mascot.className = `mascot ${data.type}`;
@@ -309,8 +356,37 @@ function updateStats() {
   el.sessionStats.textContent = `${state.completedMinutes} min heute`;
 }
 
+function setTheme(theme) {
+  state.theme = theme;
+  document.body.dataset.theme = theme;
+  localStorage.setItem("timerTheme", theme);
+  document.querySelectorAll(".theme-button").forEach((button) => {
+    const active = button.dataset.theme === theme;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  el.themeStatus.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+}
+
+async function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    await el.timerStage.requestFullscreen();
+    return;
+  }
+  await document.exitFullscreen();
+}
+
+function syncFullscreenButton() {
+  const isFullscreen = document.fullscreenElement === el.timerStage;
+  el.fullscreenButton.textContent = isFullscreen ? "Vollbild aus" : "Vollbild";
+}
+
 document.querySelectorAll(".tab-button").forEach((button) => {
   button.addEventListener("click", () => setMode(button.dataset.mode));
+});
+
+document.querySelectorAll(".theme-button").forEach((button) => {
+  button.addEventListener("click", () => setTheme(button.dataset.theme));
 });
 
 document.querySelectorAll("[data-target-offset]").forEach((button) => {
@@ -342,6 +418,11 @@ el.startPauseButton.addEventListener("click", () => {
 });
 el.resetButton.addEventListener("click", resetTimer);
 el.completeButton.addEventListener("click", completeTimer);
+el.fullscreenButton.addEventListener("click", () => {
+  toggleFullscreen().catch(() => {
+    el.timerNote.textContent = "Vollbild konnte nicht geoeffnet werden.";
+  });
+});
 el.skipIntervalButton.addEventListener("click", () => {
   if (state.mode === "interval") advanceInterval();
 });
@@ -364,7 +445,9 @@ el.taskForm.addEventListener("submit", (event) => {
   el.taskInput.value = "";
   saveTasks();
 });
+document.addEventListener("fullscreenchange", syncFullscreenButton);
 
+setTheme(state.theme);
 renderTasks();
 updateStats();
 resetTimer();

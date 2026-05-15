@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Shadow Comet mascot">
+  <path d="M28 65 7 47l30 3-11-27 26 18 12-29 12 29 26-18-11 27 30-3-21 18" fill="#20242e" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M33 45 53 56M95 45 75 56" stroke="#efc84a" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="65" cy="73" rx="40" ry="34" fill="#20242e" stroke="#17211f" stroke-width="5"/>
+  <ellipse cx="62" cy="80" rx="27" ry="20" fill="#f3eadb" stroke="#17211f" stroke-width="5"/>
+  <path d="M47 68h13M73 68h13" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M57 85q8 5 16 0" fill="none" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M40 102 18 113M89 102l22 11" stroke="#d94a40" stroke-width="9" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Dark Warlord mascot">
+  <path d="M28 42 18 18l29 12 17-22 17 22 29-12-10 24Z" fill="#4f3b72" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="64" cy="67" r="38" fill="#8b5b42" stroke="#17211f" stroke-width="5"/>
+  <path d="M30 58c8-26 25-38 52-35 13 7 20 19 18 35-20-13-44-14-70 0Z" fill="#5a2c24" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M45 66h14M73 66h14" stroke="#ffd85a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M54 86q10 5 20 0" fill="none" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M35 102 19 116M93 102l16 14" stroke="#4f3b72" stroke-width="12" stroke-linecap="round"/>
+  <path d="M42 103h44l-8 18H50Z" fill="#333047" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+</svg>

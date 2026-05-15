@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Star Puff mascot">
+  <path d="M29 89 10 75l23-8M99 89l19-14-23-8" fill="none" stroke="#d94f82" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="65" r="43" fill="#ff9dcc" stroke="#17211f" stroke-width="5"/>
+  <ellipse cx="44" cy="104" rx="17" ry="11" fill="#d94f82" stroke="#17211f" stroke-width="5"/>
+  <ellipse cx="84" cy="104" rx="17" ry="11" fill="#d94f82" stroke="#17211f" stroke-width="5"/>
+  <ellipse cx="50" cy="61" rx="5" ry="8" fill="#17211f"/>
+  <ellipse cx="78" cy="61" rx="5" ry="8" fill="#17211f"/>
+  <path d="M57 77q7 6 14 0" fill="none" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="m103 20 6 13 14 2-10 10 2 14-12-7-12 7 3-14-10-10 14-2Z" fill="#ffd85a" stroke="#17211f" stroke-width="4" stroke-linejoin="round"/>
+</svg>

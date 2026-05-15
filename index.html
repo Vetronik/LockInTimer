@@ -8,7 +8,7 @@
   </head>
   <body>
     <main class="app-shell">
-      <section class="timer-stage" aria-labelledby="app-title">
+      <section class="timer-stage" id="timerStage" aria-labelledby="app-title">
         <header class="topbar">
           <div>
             <p class="eyebrow">Study Timer</p>
@@ -31,6 +31,7 @@
           <button class="primary-button" id="startPauseButton" type="button">Start</button>
           <button class="ghost-button" id="resetButton" type="button">Reset</button>
           <button class="ghost-button" id="completeButton" type="button">Fertig</button>
+          <button class="ghost-button" id="fullscreenButton" type="button">Vollbild</button>
         </div>
 
         <nav class="mode-tabs" aria-label="Timer-Modi">
@@ -113,11 +114,36 @@
           <textarea id="focusNote" rows="5" placeholder="Was ist das Ziel dieser Lernsession?"></textarea>
         </section>
 
+        <section class="tool-section">
+          <div class="section-heading">
+            <h2>Timerdesign</h2>
+            <span id="themeStatus">Forest</span>
+          </div>
+          <div class="theme-grid" aria-label="Timerdesign auswaehlen">
+            <button class="theme-button active" type="button" data-theme="forest" aria-pressed="true">
+              <span class="theme-swatch forest"></span>
+              Forest
+            </button>
+            <button class="theme-button" type="button" data-theme="arcade" aria-pressed="false">
+              <span class="theme-swatch arcade"></span>
+              Arcade
+            </button>
+            <button class="theme-button" type="button" data-theme="midnight" aria-pressed="false">
+              <span class="theme-swatch midnight"></span>
+              Midnight
+            </button>
+            <button class="theme-button" type="button" data-theme="sunset" aria-pressed="false">
+              <span class="theme-swatch sunset"></span>
+              Sunset
+            </button>
+          </div>
+        </section>
+
         <section class="tool-section settings">
           <div class="setting-row">
             <div>
-              <strong>Retro-Cameos</strong>
-              <span>Eigene kleine Game-Mascots springen selten durch den Timer.</span>
+              <strong>Character-Cameos</strong>
+              <span>Nutzt lokale Charakterbilder, wenn du sie in assets/mascots ablegst.</span>
             </div>
             <label class="switch">
               <input id="mascotToggle" type="checkbox" checked>

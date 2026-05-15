@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Blue Comet mascot">
+  <path d="M27 66 6 48l29 2L25 23l25 18 10-29 11 29 25-18-10 27 29-2-21 18" fill="#2d82ea" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <ellipse cx="65" cy="72" rx="40" ry="34" fill="#2d82ea" stroke="#17211f" stroke-width="5"/>
+  <ellipse cx="62" cy="78" rx="27" ry="21" fill="#f5efe2" stroke="#17211f" stroke-width="5"/>
+  <circle cx="52" cy="67" r="5" fill="#17211f"/>
+  <circle cx="78" cy="67" r="5" fill="#17211f"/>
+  <path d="M57 83q8 5 16 0" fill="none" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M40 101 18 111M88 101l22 10" stroke="#d94a40" stroke-width="9" stroke-linecap="round"/>
+</svg>

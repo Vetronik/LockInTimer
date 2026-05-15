@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Shell King mascot">
+  <path d="M29 52 18 27l24 9 7-24 15 21 15-21 7 24 24-9-11 25Z" fill="#f5be4f" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="64" cy="67" r="38" fill="#d98a42" stroke="#17211f" stroke-width="5"/>
+  <path d="M36 46c10-17 47-17 57 0-11 9-45 9-57 0Z" fill="#7bc66e" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M41 63h18M69 63h18" stroke="#17211f" stroke-width="6" stroke-linecap="round"/>
+  <path d="M51 81h26" stroke="#17211f" stroke-width="5" stroke-linecap="round"/>
+  <path d="M34 96 16 108M94 96l18 12" stroke="#7bc66e" stroke-width="13" stroke-linecap="round"/>
+  <path d="M42 103h44l-9 18H51Z" fill="#5aa85d" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M30 34 16 20M98 34l14-14" stroke="#f5be4f" stroke-width="8" stroke-linecap="round"/>
+</svg>

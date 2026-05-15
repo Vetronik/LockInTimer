@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Yellow Sprout mascot">
+  <path d="M64 36c0-15 7-25 23-28 2 17-6 27-23 28Zm0 0c-14-2-24-11-25-26 16 0 25 9 25 26Z" fill="#62c66c" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M57 35h14v32H57Z" fill="#62c66c" stroke="#17211f" stroke-width="5"/>
+  <ellipse cx="64" cy="80" rx="27" ry="35" fill="#ffd852" stroke="#17211f" stroke-width="5"/>
+  <path d="M39 72 22 58l25 4M89 72l17-14-25 4" fill="#ffd852" stroke="#17211f" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="55" cy="76" r="5" fill="#17211f"/>
+  <circle cx="73" cy="76" r="5" fill="#17211f"/>
+  <path d="M58 90q6 4 12 0" fill="none" stroke="#17211f" stroke-width="4" stroke-linecap="round"/>
+  <path d="M43 105 29 118M85 105l14 13" stroke="#17211f" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -28,6 +28,10 @@ body {
     linear-gradient(135deg, #f6f1e7 0%, #eef5ee 46%, #f8f5ef 100%);
 }
 
+body.focus-mode {
+  overflow: hidden;
+}
+
 body[data-theme="arcade"] {
   background:
     radial-gradient(circle at 15% 15%, rgba(255, 216, 90, 0.28), transparent 24rem),
@@ -713,6 +717,43 @@ body[data-theme="midnight"] .theme-button {
     radial-gradient(circle at 16% 12%, rgba(245, 190, 79, 0.2), transparent 28rem),
     radial-gradient(circle at 84% 14%, rgba(110, 183, 216, 0.22), transparent 30rem),
     rgba(255, 255, 255, 0.94);
+}
+
+.focus-mode-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  padding: clamp(18px, 4vw, 56px);
+  border-radius: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(245, 190, 79, 0.2), transparent 28rem),
+    radial-gradient(circle at 84% 14%, rgba(110, 183, 216, 0.22), transparent 30rem),
+    rgba(255, 255, 255, 0.96);
+}
+
+body[data-theme="midnight"] .focus-mode-stage {
+  background:
+    radial-gradient(circle at 20% 16%, rgba(110, 183, 216, 0.2), transparent 28rem),
+    linear-gradient(135deg, #0a0f16 0%, #141b2c 100%);
+}
+
+.focus-mode-stage .mode-tabs,
+.focus-mode-stage .mode-panel {
+  display: none;
+}
+
+.focus-mode-stage .timer-card {
+  min-height: 0;
+  height: 100%;
+  align-content: center;
+}
+
+.focus-mode-stage .time-display {
+  font-size: clamp(4.6rem, 16vw, 14rem);
 }
 
 body[data-theme="midnight"] .timer-stage:fullscreen {

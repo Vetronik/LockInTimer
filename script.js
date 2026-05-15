@@ -8,6 +8,8 @@ const state = {
   intervalRound: 1,
   completedMinutes: Number(localStorage.getItem("completedMinutes") || 0),
   theme: localStorage.getItem("timerTheme") || "forest",
+  focusMode: false,
+  manualMascotIndex: 0,
   tickId: null,
   mascotId: null,
   sound: true
@@ -266,18 +268,20 @@ function scheduleMascot() {
   }, delay);
 }
 
-function spawnMascot() {
+function spawnMascot(forceCharacter = false) {
   if (!el.mascotToggle.checked) return;
-  const useCharacterAsset = Math.random() < 0.72;
+  const useCharacterAsset = forceCharacter || Math.random() < 0.9;
   if (useCharacterAsset) {
-    spawnCharacterAsset();
+    spawnCharacterAsset(forceCharacter);
     return;
   }
   spawnRetroMascot();
 }
 
-function spawnCharacterAsset() {
-  const data = characterAssets[Math.floor(Math.random() * characterAssets.length)];
+function spawnCharacterAsset(useNext = false) {
+  const data = useNext
+    ? characterAssets[state.manualMascotIndex++ % characterAssets.length]
+    : characterAssets[Math.floor(Math.random() * characterAssets.length)];
   const mascot = document.createElement("div");
   const image = document.createElement("img");
   mascot.className = "mascot asset-mascot";
@@ -368,16 +372,37 @@ function setTheme(theme) {
   el.themeStatus.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
 }
 
+function setFocusMode(active) {
+  state.focusMode = active;
+  document.body.classList.toggle("focus-mode", active);
+  el.timerStage.classList.toggle("focus-mode-stage", active);
+  syncFullscreenButton();
+}
+
 async function toggleFullscreen() {
-  if (!document.fullscreenElement) {
-    await el.timerStage.requestFullscreen();
+  const shouldEnter = !state.focusMode;
+  setFocusMode(shouldEnter);
+
+  if (shouldEnter && el.timerStage.requestFullscreen) {
+    try {
+      await el.timerStage.requestFullscreen();
+    } catch {
+      // The CSS focus mode remains active when native fullscreen is blocked.
+    }
     return;
   }
-  await document.exitFullscreen();
+
+  if (!shouldEnter && document.fullscreenElement) {
+    try {
+      await document.exitFullscreen();
+    } catch {
+      // Exiting CSS focus mode already restored the layout.
+    }
+  }
 }
 
 function syncFullscreenButton() {
-  const isFullscreen = document.fullscreenElement === el.timerStage;
+  const isFullscreen = state.focusMode || document.fullscreenElement === el.timerStage;
   el.fullscreenButton.textContent = isFullscreen ? "Vollbild aus" : "Vollbild";
 }
 
@@ -426,7 +451,7 @@ el.fullscreenButton.addEventListener("click", () => {
 el.skipIntervalButton.addEventListener("click", () => {
   if (state.mode === "interval") advanceInterval();
 });
-el.testMascotButton.addEventListener("click", spawnMascot);
+el.testMascotButton.addEventListener("click", () => spawnMascot(true));
 el.soundToggleButton.addEventListener("click", () => {
   state.sound = !state.sound;
   el.soundToggleButton.textContent = state.sound ? "Ton an" : "Ton aus";
@@ -445,7 +470,17 @@ el.taskForm.addEventListener("submit", (event) => {
   el.taskInput.value = "";
   saveTasks();
 });
-document.addEventListener("fullscreenchange", syncFullscreenButton);
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement && state.focusMode) {
+    setFocusMode(false);
+  }
+  syncFullscreenButton();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && state.focusMode) {
+    setFocusMode(false);
+  }
+});
 
 setTheme(state.theme);
 renderTasks();
